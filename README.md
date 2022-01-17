@@ -128,9 +128,9 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 
   - Projeto individual.
 
-  - Serão `2` dias de projeto.
+  - Serão `3` dias de projeto.
   
-  - Data de entrega para avaliação final do projeto: `21/01/2022 - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `24/01/2022 - 14:00h`.
 
 ---
 
