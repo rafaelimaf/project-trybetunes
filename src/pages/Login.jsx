@@ -32,14 +32,14 @@ export default class Login extends Component {
     }
   }
 
-  async saveUser () {
+  async saveUser() {
     const { userName } = this.state;
     await createUser({ name: userName }, this.setState({
       isLoading: true,
-    }))
+    }));
     this.setState({
       isRedirecting: true,
-    })
+    });
   }
 
   render() {
@@ -71,8 +71,7 @@ export default class Login extends Component {
               Entrar
             </button>
           </div>
-        )
-      }
+        )}
         {isRedirecting ? <Redirect to="/search" /> : null}
       </div>
     );
