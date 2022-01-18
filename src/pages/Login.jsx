@@ -6,11 +6,13 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      name: '',
+      userName: '',
       isLoginDisabled: true,
       isLoading: false,
       isRedirecting: false,
     };
+
+    this.saveUser = this.saveUser.bind(this);
   }
 
   handleChange = ({ target }) => {
@@ -21,48 +23,56 @@ export default class Login extends Component {
   }
 
   ableLoginBtn = () => {
-    const { name } = this.state;
+    const { userName } = this.state;
     const LOGIN_NAME_MIN_SIZE = 3;
-    if (name.length > LOGIN_NAME_MIN_SIZE) {
+    if (userName.length >= LOGIN_NAME_MIN_SIZE) {
       this.setState({
         isLoginDisabled: false,
       });
     }
   }
 
+  async saveUser () {
+    const { userName } = this.state;
+    await createUser({ name: userName }, this.setState({
+      isLoading: true,
+    }))
+    this.setState({
+      isRedirecting: true,
+    })
+  }
+
   render() {
-    const { name, isLoginDisabled, isLoading, isRedirecting } = this.state;
+    const { userName, isLoginDisabled, isLoading, isRedirecting } = this.state;
     return (
-      <div data-testid="page-login">
-        <h1>Login</h1>
-        <label htmlFor="name">
-          <input
-            data-testid="login-name-input"
-            type="text"
-            name="name"
-            value={ name }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <button
-          data-testid="login-submit-button"
-          type="submit"
-          disabled={ isLoginDisabled }
-          /**
-           * Foi usado como referência o repositório do Aluno Pedro Goulart para entender
-           * que deveria ser usado uma função asincrona na requisição da API.
-           */
-          onClick={ async () => {
-            this.setState({
-              isLoading: true,
-              isRedirecting: true,
-            });
-            await createUser({ name: { name } });
-          } }
-        >
-          Entrar
-        </button>
-        {isLoading ? <p>Carregando...</p> : null}
+      <div>
+        {isLoading ? (<p>Carregando...</p>) : (
+          <div data-testid="page-login">
+            <h1>Login</h1>
+            <label htmlFor="userName">
+              <input
+                data-testid="login-name-input"
+                type="text"
+                name="userName"
+                value={ userName }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              data-testid="login-submit-button"
+              type="submit"
+              disabled={ isLoginDisabled }
+              /**
+               * Foi usado como referência o repositório do Aluno Pedro Goulart para entender
+               * que deveria ser usado uma função asincrona na requisição da API.
+               */
+              onClick={ this.saveUser }
+            >
+              Entrar
+            </button>
+          </div>
+        )
+      }
         {isRedirecting ? <Redirect to="/search" /> : null}
       </div>
     );
