@@ -12,7 +12,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>TrybeTunes</p>
+        <header>
+          <h1>Trybetunes</h1>
+        </header>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ Login } />
