@@ -27,7 +27,6 @@ export default class Album extends Component {
      */
     const [infos, ...musics] = recoveredMusics;
     this.setState({ albumInfos: infos, albumMusics: musics });
-    console.log(recoveredMusics);
   }
 
   render() {
