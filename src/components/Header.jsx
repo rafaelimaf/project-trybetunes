@@ -28,9 +28,11 @@ export default class Header extends Component {
     const { isLoading, userName } = this.state;
     return (
       <header data-testid="header-component">
-        <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
-        <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
-        <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+        <div>
+          <Link data-testid="link-to-search" to="/search">Pesquisar</Link>
+          <Link data-testid="link-to-favorites" to="/favorites">Favoritos</Link>
+          <Link data-testid="link-to-profile" to="/profile">Perfil</Link>
+        </div>
         <h1>Trybetunes</h1>
         {isLoading ? (<p>Carregando...</p>) : (
           <div>
