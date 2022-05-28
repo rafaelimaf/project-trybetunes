@@ -1,0 +1,28 @@
+const artistsSuggestions = [
+  'Nirnava',
+  'Coldplay',
+  'Taylor Swift',
+  'Avril Lavigne',
+  'Ed Sheeran',
+  'Justin Bieber',
+  'The Weeknd',
+  'Harry Styles',
+  'Dua Lipa',
+  'Bad Bunny',
+  'Drake',
+  'Coldplay',
+  'Taylor Swift',
+  'Imagine Dragons',
+  'Doja Cat',
+  'David Guetta',
+  'Jack Harlow',
+  'J Balvin',
+  'Ariana Grande',
+  'Bruno Mars',
+  'Eminem',
+  'Maroon',
+  'Rihanna',
+  'Post Malone',
+];
+
+export default artistsSuggestions;

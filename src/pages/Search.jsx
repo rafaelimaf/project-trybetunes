@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import artistsSuggestions from '../data/artistSuggestions';
+
+const SEARCH_MIN_SIZE = 2;
 
 export default class Search extends Component {
   constructor() {
@@ -9,10 +12,15 @@ export default class Search extends Component {
     this.state = {
       searchInput: '',
       isSearchBtnDisabled: true,
-      artistList: [],
+      artistList: [[]],
       artistName: '',
       isLoading: false,
     };
+  }
+
+  componentDidMount = async () => {
+    const randomArtist = Math.floor(Math.random() * artistsSuggestions.length);
+    this.searchArtist(artistsSuggestions[randomArtist]);
   }
 
   handleChange = ({ target }) => {
@@ -24,7 +32,6 @@ export default class Search extends Component {
 
   ableSearchBtn = () => {
     const { searchInput } = this.state;
-    const SEARCH_MIN_SIZE = 2;
     if (searchInput.length >= SEARCH_MIN_SIZE) {
       this.setState({
         isSearchBtnDisabled: false,
@@ -32,10 +39,10 @@ export default class Search extends Component {
     }
   }
 
-  searchArtist = async () => {
+  searchArtist = async (artist) => {
     this.setState({ isLoading: true });
     const { searchInput } = this.state;
-    const requestArtist = await searchAlbumsAPI(searchInput);
+    const requestArtist = await searchAlbumsAPI(searchInput || artist);
     this.setState((prevState) => ({
       isLoading: false,
       artistList: [...requestArtist],
