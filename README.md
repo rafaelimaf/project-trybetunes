@@ -14,7 +14,7 @@ Front-end:
   <img align="left" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
   <img align="left" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
   <img align="left" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-  <img align="left" height="30" width="40" src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png">
+  <img align="left" height="30" width="40" src="https://cdn.pellerex.com/public/ecosystem/web/content/web-spa-routing/pellerex-spa-routing.png">
 </div>
 </br>
 </br>
@@ -38,25 +38,25 @@ A maior parte do projeto foi desenvolvida por mim de forma independente, sendo n
 **Trambém já forma pré-produzidos, algumas funções do diretório `services`. Sendo necessário apenas implementar as requisições com a aplicação em sí.**
 
 ## Para este projeto foi preciso implementar os seguintes requisitos:
-- [REQUISITOS OBRIGATÓRIOS]()
-  - 1. Crie as rotas necessárias para a aplicação;
-  - 2. Crie um formulário para identificação;
-  - 3. Crie um componente de cabeçalho;
-  - 4. Crie os links de navegação no cabeçalho;
-  - 5. Crie o formulário para pesquisar artistas;
-  - 6. Faça a requisição para pesquisar artistas;
-  - 7. Crie a lista de músicas do álbum selecionado;
-  - 8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas;
-  - 9. Faça a requisição para recuperar as músicas favoritas ao entrar na página do Álbum;
-  - 10. Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música;
-  - 11. Crie o mecanismo para remover músicas na lista de músicas favoritas;
-[REQUISITOS BÔNUS bônus]()
-  - 12. Crie a lista de músicas favoritas
-  - 13. Crie a exibição de perfil;
-  - 14. Crie o formulário de edição de perfil;
+### REQUISITOS OBRIGATÓRIOS
+  1. Crie as rotas necessárias para a aplicação;
+  2. Crie um formulário para identificação;
+  3. Crie um componente de cabeçalho;
+  4. Crie os links de navegação no cabeçalho;
+  5. Crie o formulário para pesquisar artistas;
+  6. Faça a requisição para pesquisar artistas;
+  7. Crie a lista de músicas do álbum selecionado;
+  8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas;
+  9. Faça a requisição para recuperar as músicas favoritas ao entrar na página do Álbum;
+  10. Faça a requisição para recuperar as músicas favoritas e atualizar a lista após favoritar uma música;
+  11. Crie o mecanismo para remover músicas na lista de músicas favoritas;
+### REQUISITOS BÔNUS
+  12. Crie a lista de músicas favoritas
+  13. Crie a exibição de perfil;
+  14. Crie o formulário de edição de perfil;
 
 
-No mais, o restante das dependencias e módulos também foram disponibilizados pela mesma.
+> No mais, o restante das dependencias e módulos também foram disponibilizados pela mesma.
 
 
 ## Instalando Dependências
