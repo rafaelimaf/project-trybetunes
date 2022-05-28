@@ -9,14 +9,13 @@ export default class Header extends Component {
       isLoading: true,
       userName: '',
     };
-    this.recoverUser = this.recoverUser.bind(this);
   }
 
   componentDidMount() {
     this.recoverUser();
   }
 
-  async recoverUser() {
+  recoverUser = async () => {
     await getUser();
     const recoverUserName = JSON.parse(localStorage.getItem('user'));
     this.setState({

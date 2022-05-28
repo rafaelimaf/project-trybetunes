@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 
+const LOGIN_NAME_MIN_SIZE = 3;
+
 export default class Login extends Component {
   constructor() {
     super();
@@ -11,8 +13,6 @@ export default class Login extends Component {
       isLoading: false,
       isRedirecting: false,
     };
-
-    this.saveUser = this.saveUser.bind(this);
   }
 
   handleChange = ({ target }) => {
@@ -24,7 +24,6 @@ export default class Login extends Component {
 
   ableLoginBtn = () => {
     const { userName } = this.state;
-    const LOGIN_NAME_MIN_SIZE = 3;
     if (userName.length >= LOGIN_NAME_MIN_SIZE) {
       this.setState({
         isLoginDisabled: false,
@@ -32,7 +31,7 @@ export default class Login extends Component {
     }
   }
 
-  async saveUser() {
+  saveUser = async () => {
     const { userName } = this.state;
     await createUser({ name: userName }, this.setState({
       isLoading: true,
