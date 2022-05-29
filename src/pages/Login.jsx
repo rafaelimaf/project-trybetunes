@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import { createUser } from '../services/userAPI';
+import '../styles/LoginPage.css';
 
 const LOGIN_NAME_MIN_SIZE = 3;
 
@@ -15,6 +18,12 @@ export default class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    Aos.init({
+      duration: 700,
+    });
+  }
+
   handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
@@ -27,6 +36,10 @@ export default class Login extends Component {
     if (userName.length >= LOGIN_NAME_MIN_SIZE) {
       this.setState({
         isLoginDisabled: false,
+      });
+    } else if (userName.length <= LOGIN_NAME_MIN_SIZE) {
+      this.setState({
+        isLoginDisabled: true,
       });
     }
   }
@@ -44,33 +57,38 @@ export default class Login extends Component {
   render() {
     const { userName, isLoginDisabled, isLoading, isRedirecting } = this.state;
     return (
-      <div>
+      <div className="login-page">
         {isLoading ? (<p>Carregando...</p>) : (
-          <div>
-            <div data-testid="page-login">
-              <h1>Login</h1>
-              <label htmlFor="userName">
-                <input
-                  data-testid="login-name-input"
-                  type="text"
-                  name="userName"
-                  value={ userName }
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <button
-                data-testid="login-submit-button"
-                type="submit"
-                disabled={ isLoginDisabled }
-                /**
+          <div
+            className="login-container"
+            data-testid="page-login"
+            data-aos="fade-up"
+          >
+            <h1 className="login-title">Login</h1>
+            <label htmlFor="userName">
+              Usuário
+              <input
+                className="login-input"
+                data-testid="login-name-input"
+                type="text"
+                name="userName"
+                value={ userName }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              className="login-btn"
+              data-testid="login-submit-button"
+              type="submit"
+              disabled={ isLoginDisabled }
+              /**
                  * Foi usado como referência o repositório do Aluno Pedro Goulart para entender
                  * que deveria ser usado uma função asincrona na requisição da API.
                  */
-                onClick={ this.saveUser }
-              >
-                Entrar
-              </button>
-            </div>
+              onClick={ this.saveUser }
+            >
+              Entrar
+            </button>
           </div>
         )}
         {isRedirecting ? <Redirect to="/search" /> : null}
