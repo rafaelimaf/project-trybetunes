@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import artistsSuggestions from '../data/artistSuggestions';
+import '../styles/SearchPage.css';
 
 const SEARCH_MIN_SIZE = 2;
 
@@ -16,11 +16,6 @@ export default class Search extends Component {
       artistName: '',
       isLoading: false,
     };
-  }
-
-  componentDidMount = async () => {
-    const randomArtist = Math.floor(Math.random() * artistsSuggestions.length);
-    this.searchArtist(artistsSuggestions[randomArtist]);
   }
 
   handleChange = ({ target }) => {
@@ -60,7 +55,7 @@ export default class Search extends Component {
       artistList,
     } = this.state;
     return (
-      <div data-testid="page-search">
+      <div className="page-search" data-testid="page-search">
         <Header />
         <h1>Search</h1>
         {isLoading ? (
