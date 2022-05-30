@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { createUser } from '../services/userAPI';
-import '../styles/LoginPage.css';
+import '../styles/Pages/LoginPage.css';
 
 const LOGIN_NAME_MIN_SIZE = 3;
 
@@ -59,11 +59,11 @@ export default class Login extends Component {
     return (
       <div className="login-page">
         {isLoading ? (
-          <div className="loading-container">
-            <p className="loading-text" data-aos="fade">
+          <div className="login-loading-container">
+            <div className="login-loading-img" data-aos="fade" />
+            <p className="login-loading-text" data-aos="fade">
               Carregando...
             </p>
-            <div className="loading-img" data-aos="fade" />
           </div>
         ) : (
           <div
