@@ -67,3 +67,44 @@
   cursor: default;
   background-color: #36005a42;
 }
+
+.loading-container {
+  align-items: center;
+  justify-content: space-around;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  padding: 2rem;
+  width: 20rem;
+}
+
+.loading-img {
+  animation: 0.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 0.3rem #49007a;
+  border-bottom-color: #36005a;
+  border-radius: 50%;
+  height: 1rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 1rem;
+  will-change: transform;
+}
+
+.loading-text {
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}

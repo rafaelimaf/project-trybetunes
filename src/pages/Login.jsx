@@ -58,7 +58,14 @@ export default class Login extends Component {
     const { userName, isLoginDisabled, isLoading, isRedirecting } = this.state;
     return (
       <div className="login-page">
-        {isLoading ? (<p>Carregando...</p>) : (
+        {isLoading ? (
+          <div className="loading-container">
+            <p className="loading-text" data-aos="fade">
+              Carregando...
+            </p>
+            <div className="loading-img" data-aos="fade" />
+          </div>
+        ) : (
           <div
             className="login-container"
             data-testid="page-login"
