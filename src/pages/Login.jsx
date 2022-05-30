@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { createUser } from '../services/userAPI';
-import '../styles/Pages/LoginPage.css';
+import '../styles/pages/LoginPage.css';
 
 const LOGIN_NAME_MIN_SIZE = 3;
 

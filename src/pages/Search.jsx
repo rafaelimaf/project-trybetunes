@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import '../styles/Pages/SearchPage.css';
+import '../styles/pages/SearchPage.css';
+import Albums from '../components/Albums';
 
 const SEARCH_MIN_SIZE = 2;
 
@@ -14,7 +14,7 @@ export default class Search extends Component {
     this.state = {
       searchInput: '',
       isSearchBtnDisabled: true,
-      artistList: [[]],
+      albumsList: [],
       artistName: '',
       isLoading: false,
     };
@@ -39,16 +39,20 @@ export default class Search extends Component {
       this.setState({
         isSearchBtnDisabled: false,
       });
+    } else if (searchInput.length <= SEARCH_MIN_SIZE) {
+      this.setState({
+        isSearchBtnDisabled: true,
+      });
     }
   }
 
-  searchArtist = async (artist) => {
+  searchArtist = async () => {
     this.setState({ isLoading: true });
     const { searchInput } = this.state;
-    const requestArtist = await searchAlbumsAPI(searchInput || artist);
+    const requestArtist = await searchAlbumsAPI(searchInput);
     this.setState((prevState) => ({
       isLoading: false,
-      artistList: [...requestArtist],
+      albumsList: [...requestArtist],
       artistName: prevState.searchInput,
       searchInput: '',
     }));
@@ -60,7 +64,7 @@ export default class Search extends Component {
       isSearchBtnDisabled,
       isLoading,
       artistName,
-      artistList,
+      albumsList,
     } = this.state;
     return (
       <div className="page-search" data-testid="page-search">
@@ -103,22 +107,10 @@ export default class Search extends Component {
             </div>
           </div>
         )}
-        {artistList.length > 0 ? (
-          <div>
-            {artistList.map((album) => (
-              <div key={ album.collectionId }>
-                <Link
-                  data-testid={ `link-to-album-${album.collectionId}` }
-                  to={ `/album/${album.collectionId}` }
-                >
-                  <h2>{album.collectionName}</h2>
-                </Link>
-                <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-              </div>
-            ))}
-          </div>
+        {albumsList.length > 0 ? (
+          <Albums albumsList={ albumsList } />
         ) : (
-          <div className="centralize-container">
+          <div className="centralize-container" data-aos="fade-down">
             <div className="not-found-container">
               <p className="not-found-text">Nenhum álbum foi encontrado</p>
             </div>
