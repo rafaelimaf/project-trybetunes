@@ -1,0 +1,81 @@
+.header-container {
+  align-items: center;
+  background-color: #0a0a0a;
+  box-shadow: 0 0.1rem 1rem black;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  position: relative;
+  z-index: 1;
+}
+
+.links-container {
+  background-image: url(https://wallpapersmug.com/download/3840x2400/1787ca/fluid-art-dark-abstraction.jpg);
+  background-position: 50%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.links-container a {
+  color: white;
+  font-weight: bold;
+  padding: 1rem 11.56rem;
+  text-decoration: none;
+  transition: 0.5s;
+  border-right: 1px solid #0a0a0a;
+  border-left: 1px solid #0a0a0a;
+}
+
+.nav-link:hover {
+  transition: 0.5s;
+  background-color: #000000bb;
+}
+
+.nav-link:focus {
+  background-color: #000000bb;
+  outline: none;
+}
+
+.header-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.header-loading-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  height: 4rem;
+  padding-bottom: 0.25rem;
+  width: 20rem;
+}
+
+.header-loading-img {
+  animation: 0.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 0.3rem #49007a;
+  border-bottom-color: #36005a;
+  border-radius: 50%;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.header-loading-text {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.username-container {
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
