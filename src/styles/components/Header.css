@@ -15,6 +15,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  width: 100%;
 }
 
 .links-container a {
@@ -23,13 +24,11 @@
   padding: 1rem 11.56rem;
   text-decoration: none;
   transition: 0.5s;
-  border-right: 1px solid #0a0a0a;
-  border-left: 1px solid #0a0a0a;
 }
 
 .nav-link:hover {
-  transition: 0.5s;
   background-color: #000000bb;
+  transition: 0.5s;
 }
 
 .nav-link:focus {
@@ -38,8 +37,8 @@
 }
 
 .header-title {
-  margin-top: 2rem;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .header-loading-container {
@@ -67,8 +66,8 @@
 }
 
 .username-container {
-  padding-bottom: 1rem;
   font-size: 0.75rem;
+  padding-bottom: 1rem;
 }
 
 @keyframes spinner {
