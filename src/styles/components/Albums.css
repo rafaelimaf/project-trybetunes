@@ -6,9 +6,15 @@
   margin-top: 1rem;
 }
 
+.albums-container * {
+  outline: none;
+}
+
 .album-container {
   align-items: center;
-  background-color: #0a0a0a;
+  background-image:
+    url(https://wallpapersmug.com/download/3840x2400/1787ca/fluid-art-dark-abstraction.jpg);
+  background-position: 100%;
   border-radius: 0.5rem;
   color: white;
   display: flex;
