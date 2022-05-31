@@ -34,13 +34,18 @@
   background-color: #1c1b1e;
 }
 
-.album-container:hover img {
-  opacity: 50%;
-}
-
 .album-image {
+  transition: 0.5s;
   padding-bottom: 2rem;
 }
+
+.album-container:hover img {
+  height: 6rem;
+  transition: 0.5s;
+  opacity: 75%;
+  width: 6rem;
+}
+
 
 .album-link {
   background-color: #000000;
