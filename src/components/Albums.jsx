@@ -22,6 +22,7 @@ export default class Albums extends Component {
             data-aos="fade-down"
             key={ album.collectionId }
             to={ `/album/${album.collectionId}` }
+            tabIndex="-1"
           >
             <div>
               <img

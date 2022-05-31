@@ -49,6 +49,7 @@
 
 .search-btn:hover {
   background-color: #36005a;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -56,6 +57,10 @@
 .search-btn:disabled {
   background-color: #36005a42;
   cursor: default;
+}
+
+.search-btn:focus {
+  outline: 1px solid white;
 }
 
 .search-result-text {
